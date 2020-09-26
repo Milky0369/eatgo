@@ -1,6 +1,8 @@
 package kr.co.fastcampus.eatgo.interfaces;
 
-import kr.co.fastcampus.eatgo.domain.RestaurantRepository;
+import kr.co.fastcampus.eatgo.domain.RestaurantRepositoryImpl;
+import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.SpyBean;
@@ -20,7 +22,7 @@ public class RestaurantControllerTest {
     private MockMvc mvc;
 
     @SpyBean
-    private RestaurantRepository restaurantRepository;
+    private RestaurantRepositoryImpl restaurantRepository;
 
     @Test
     public void list() throws Exception {
