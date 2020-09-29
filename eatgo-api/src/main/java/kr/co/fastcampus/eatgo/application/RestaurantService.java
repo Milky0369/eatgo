@@ -1,5 +1,7 @@
 package kr.co.fastcampus.eatgo.application;
 
+import kr.co.fastcampus.eatgo.domain.MenuItem;
+import kr.co.fastcampus.eatgo.domain.MenuItemRepository;
 import kr.co.fastcampus.eatgo.domain.Restaurant;
 import kr.co.fastcampus.eatgo.domain.RestaurantRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,11 +15,20 @@ public class RestaurantService {
     @Autowired
     RestaurantRepository restaurantRepository;
 
-    public RestaurantService(RestaurantRepository restaurantRepository) {
+    @Autowired
+    MenuItemRepository menuItemRepository;
+
+    public RestaurantService(RestaurantRepository restaurantRepository, MenuItemRepository menuItemRepository) {
         this.restaurantRepository = restaurantRepository;
+        this.menuItemRepository = menuItemRepository;
     }
 
     public Restaurant getRestaurantById(Long id) {
+        Restaurant restaurant = restaurantRepository.findById(id);
+
+        List<MenuItem> menuItems = menuItemRepository.findAllByRestaurantId(id);
+        restaurant.setMenuItems(menuItems);
+
         return restaurantRepository.findById(id);
     }
 

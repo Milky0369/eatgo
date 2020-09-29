@@ -40,11 +40,6 @@ public class RestaurantController {
         // 기본 정보 + 메뉴정보
         Restaurant restaurant = restaurantService.getRestaurantById(id);
 
-//        Restaurant restaurant = restaurantRepository.findById(id);
-//
-//        List<MenuItem> menuItems = menuItemRepository.findAllByRestaurantId(id);
-//        restaurant.setMenuItems(menuItems);
-
         return restaurant;
     }
 
