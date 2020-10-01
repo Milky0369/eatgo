@@ -24,7 +24,7 @@ public class RestaurantServiceTest {
         menuItemRepository = new MenuItemRepositoryImpl();
 
         restaurantService = new RestaurantService(restaurantRepository, menuItemRepository);
- 
+  
     }
 
     @Test
