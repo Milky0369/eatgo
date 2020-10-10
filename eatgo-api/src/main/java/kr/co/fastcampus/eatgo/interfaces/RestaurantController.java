@@ -32,7 +32,7 @@ public class RestaurantController {
 //        List<Restaurant> restaurants = restaurantRepository.findAll();
         List<Restaurant> restaurants = restaurantService.getRestaurants();
 
-        return restaurants;    
+        return restaurants;     
     }
 
     @GetMapping("/restaurant/{id}")
